@@ -218,7 +218,7 @@ if training == True:
                           'Explore P: {:.4f}'.format(explore_probability),
                           'Training Loss {:.4f}'.format(loss))
 
-                    rewards_list.append((episode, total_reward))
+                    #rewards_list.append((episode, total_reward))
 
                     os.makedirs('./logs', exist_ok=True)
 
