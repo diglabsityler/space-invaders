@@ -1,3 +1,5 @@
+import os
+import time
 import tensorflow as tf      # Deep Learning library
 import numpy as np           # Handle matrices
 import retro                 # Retro Environment
@@ -58,7 +60,7 @@ training = True
 
 ## TURN THIS TO TRUE IF YOU WANT TO RENDER THE ENVIRONMENT
 episode_render = False
-
+logname= "log-" + str(time.time())
 stack_size = 4  # We stack 4 frames
 
 # Initialize deque with zero-images one array for each image
@@ -217,6 +219,11 @@ if training == True:
                           'Training Loss {:.4f}'.format(loss))
 
                     rewards_list.append((episode, total_reward))
+
+                    os.makedirs('./logs', exist_ok=True)
+
+                    with open("./logs/" + logname, "a+") as log:
+                        log.write("episode: " + episode + "total reward: ", + total_reward)
 
                     # Store transition <st,at,rt+1,st+1> in memory D
                     memory.add((state, action, reward, next_state, done))
