@@ -18,7 +18,7 @@ warnings.filterwarnings('ignore')
 
 
 # Create our environment
-env = retro.make(game='./roms/SpaceInvaders-Atari2600')
+env = retro.make(game='SpaceInvaders-Atari2600')
 
 print("The size of our frame is: ", env.observation_space)
 print("The action size is : ", env.action_space.n)
