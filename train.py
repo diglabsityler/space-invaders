@@ -223,7 +223,7 @@ if training == True:
                     os.makedirs('./logs', exist_ok=True)
 
                     with open("./logs/" + logname, "a+") as log:
-                        log.write("episode: " + str(episode) + "total reward: ", + str(total_reward))
+                        log.write("episode: " + str(episode) + "total reward: " + str(total_reward))
 
                     # Store transition <st,at,rt+1,st+1> in memory D
                     memory.add((state, action, reward, next_state, done))
